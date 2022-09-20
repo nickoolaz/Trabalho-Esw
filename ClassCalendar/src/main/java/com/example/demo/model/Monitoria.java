@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,10 +29,12 @@ public class Monitoria implements Serializable{
   @Column (name = "feedback")
   private String feedback;
    
-   @Column (name = "id_aluno")//************
+   @ManyToOne 
+   @JoinColumn (name = "id_aluno", referencedColumnName = "id_aluno")
    private Aluno aluno;    
    
-   //@Column (name = "professor")
+   //@ManyToOne
+   //@JoinColumn (name = "id_professor", referencedColumnName = "id_professor")
    //private Professor professor;
    
     public Monitoria() {

@@ -36,7 +36,7 @@ public class Aluno implements Serializable{
     public Aluno() {
     }
 
-    public Aluno(int idAluno, String cpf, String nome, String turma, String telefone, String endereco) {
+    public Aluno(Integer idAluno, String cpf, String nome, String turma, String telefone, String endereco) {
         this.idAluno = idAluno;
         this.cpf = cpf;
         this.nome = nome;
@@ -45,7 +45,7 @@ public class Aluno implements Serializable{
         this.endereco = endereco;
     }
 
-    public int getIdAluno() {
+    public Integer getIdAluno() {
         return idAluno;
     }
 
