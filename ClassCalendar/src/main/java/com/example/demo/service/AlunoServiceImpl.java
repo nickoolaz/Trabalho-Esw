@@ -22,7 +22,7 @@ public class AlunoServiceImpl implements AlunoService{
     public Optional<Aluno> getByIdAluno(Integer idAluno) {
         return alunoRepository.findById(idAluno);
     }
-    
+   
     @Override
     public Aluno salvaAluno(Aluno aluno) {
         return alunoRepository.save(aluno);
