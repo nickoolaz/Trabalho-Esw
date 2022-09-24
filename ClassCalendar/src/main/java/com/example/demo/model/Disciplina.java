@@ -1,9 +1,30 @@
 package com.example.demo.model;
 
-public class Disciplina {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="disciplina")
+
+public class Disciplina implements Serializable {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name= "id_disciplina")
     private Integer idDisciplina;
+    
+    @Column (name= "materia")
     private String materia;
-    private Professor professor;
+    
+    /*@ManyToOne
+    @JoinColumn (name="id_professor", referencedColumnName = "id_professor")
+    private Professor professor;*/
 
     public Disciplina() {
     }
@@ -11,7 +32,7 @@ public class Disciplina {
     public Disciplina(Integer idDisciplina, String materia, Professor professor) {
         this.idDisciplina = idDisciplina;
         this.materia = materia;
-        this.professor = professor;
+        //this.professor = professor;
     }
 
     public Integer getIdDisciplina() {
@@ -22,9 +43,9 @@ public class Disciplina {
         return materia;
     }
 
-    public Professor getProfessor() {
+    /*public Professor getProfessor() {
         return professor;
-    }
+    }*/
 
     public void setMateria(String materia) {
         this.materia = materia;
