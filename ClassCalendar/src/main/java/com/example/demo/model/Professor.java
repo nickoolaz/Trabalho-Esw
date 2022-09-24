@@ -18,6 +18,11 @@ public class Professor {
         this.telefone = telefone;
         this.endereco = endereco;
     }
+
+    @Override
+    public String toString() {
+        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + '}';
+    }
     
 }
 
@@ -27,5 +32,4 @@ public class Professor {
 
 
  
-
 

@@ -8,7 +8,7 @@ public class Disciplina {
     public Disciplina() {
     }
 
-    public Disciplina(Integer idDisciplina, String materia/*, Professor professor*/) {
+    public Disciplina(Integer idDisciplina, String materia, Professor professor) {
         this.idDisciplina = idDisciplina;
         this.materia = materia;
         this.professor = professor;
@@ -28,11 +28,6 @@ public class Disciplina {
 
     public void setMateria(String materia) {
         this.materia = materia;
-    }
-
-    @Override
-    public String toString() {
-        return "Disciplina{" + "idDisciplina=" + idDisciplina + ", materia=" + materia + ", professor=" + professor + '}';
     }
     
 } 
