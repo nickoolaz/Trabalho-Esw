@@ -22,9 +22,9 @@ public class Disciplina implements Serializable {
     @Column (name= "materia")
     private String materia;
     
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn (name="id_professor", referencedColumnName = "id_professor")
-    private Professor professor;*/
+    private Professor professor;
 
     public Disciplina() {
     }
@@ -32,7 +32,7 @@ public class Disciplina implements Serializable {
     public Disciplina(Integer idDisciplina, String materia, Professor professor) {
         this.idDisciplina = idDisciplina;
         this.materia = materia;
-        //this.professor = professor;
+        this.professor = professor;
     }
 
     public Integer getIdDisciplina() {
@@ -43,9 +43,9 @@ public class Disciplina implements Serializable {
         return materia;
     }
 
-    /*public Professor getProfessor() {
+    public Professor getProfessor() {
         return professor;
-    }*/
+    }
 
     public void setMateria(String materia) {
         this.materia = materia;

@@ -33,9 +33,9 @@ public class Monitoria implements Serializable{
    @JoinColumn (name = "id_aluno", referencedColumnName = "id_aluno")
    private Aluno aluno;    
    
-   //@ManyToOne
-   //@JoinColumn (name = "id_professor", referencedColumnName = "id_professor")
-   //private Professor professor;
+   @ManyToOne
+   @JoinColumn (name = "id_professor", referencedColumnName = "id_professor")
+   private Professor professor;
    
     public Monitoria() {
     }
@@ -46,7 +46,7 @@ public class Monitoria implements Serializable{
         this.fimMonitoria = fimMonitoria;
         this.feedback = feedback;
         this.aluno = aluno;
-        //this.professor = professor;
+        this.professor = professor;
     }
 
     public int getIdMonitoria() {
@@ -69,9 +69,9 @@ public class Monitoria implements Serializable{
         return aluno;
     }
 
-   /* public Professor getProfessor() {
+   public Professor getProfessor() {
         return professor;
-    }*/
+    }
 
     public void setInicioMonitoria(long inicioMonitoria) {
         this.inicioMonitoria = inicioMonitoria;
