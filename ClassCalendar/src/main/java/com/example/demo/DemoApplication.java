@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.model.Aluno;
+import com.example.demo.model.Professor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

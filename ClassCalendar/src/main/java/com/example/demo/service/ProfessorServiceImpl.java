@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.model.Professor;
 import com.example.demo.repository.ProfessorRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class ProfessorServiceImpl implements ProfessorService {
     
     }
     
-    /*@Override
+    @Override
     public Optional<Professor> getByIdProfessor (Integer idProfessor) {
         return  professorRepository.findById (idProfessor);
     }
@@ -31,8 +32,11 @@ public class ProfessorServiceImpl implements ProfessorService {
     @Override
     public Professor atualizaProfessor (Professor professor){ 
         return professorRepository.save(professor);
-    }*/  
+    }  
    
-    
+    @Override
+    public void deleteByIdProfessor (Integer idProfessor) {
+        professorRepository.deleteById (idProfessor);
+    }
     
 }
