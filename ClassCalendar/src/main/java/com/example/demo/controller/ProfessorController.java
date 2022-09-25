@@ -24,7 +24,7 @@ public class ProfessorController {
      private ProfessorService professorService;
 
      @GetMapping("/professores")
-     public ResponseEntity <List<Professor>> ListaProfessores (){
+     public ResponseEntity <List<Professor>> listaProfessores (){
          return ResponseEntity.status (HttpStatus.OK). body(professorService.listaProfessores()); 
     }    
     
