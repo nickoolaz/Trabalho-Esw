@@ -47,6 +47,6 @@ public class MonitoriaController {
     @DeleteMapping("monitoria/{id_monitoria}")
         public ResponseEntity<String> deleteByIdMonitoria(@PathVariable Integer id_monitoria){
             monitoriaService.deleteByIdMonitoria(id_monitoria);
-            return ResponseEntity.status(HttpStatus.OK).body("Monitoria removida com sucesso");
+            return ResponseEntity.status(HttpStatus.OK).body("Monitoria removida com sucesso!");
         }
 }

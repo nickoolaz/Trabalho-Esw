@@ -46,6 +46,6 @@ public class ProfessorController {
     @DeleteMapping("professor/{id_professor}")
     public ResponseEntity<String> deleteByIdProfessor(@PathVariable Integer id_professor){
         professorService.deleteByIdProfessor(id_professor);
-        return ResponseEntity.status(HttpStatus.OK).body("Professor removido com sucesso");
+        return ResponseEntity.status(HttpStatus.OK).body("Professor removido com sucesso!");
     }
 }

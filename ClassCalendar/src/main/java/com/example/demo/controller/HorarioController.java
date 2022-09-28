@@ -46,6 +46,6 @@ public class HorarioController {
     @DeleteMapping("horario/{id_horario}")
     public ResponseEntity<String> deleteByIdHorario(@PathVariable Integer id_horario){
         horarioService.deleteByIdHorario(id_horario);
-        return ResponseEntity.status(HttpStatus.OK).body("Horario removido com sucesso");
+        return ResponseEntity.status(HttpStatus.OK).body("Horario da disciplina removido com sucesso!");
     }
 }

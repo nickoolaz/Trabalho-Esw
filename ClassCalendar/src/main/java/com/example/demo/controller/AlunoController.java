@@ -47,6 +47,6 @@ public class AlunoController {
     @DeleteMapping("aluno/{id_aluno}")
     public ResponseEntity<String> deleteByIdAluno(@PathVariable Integer id_aluno){
         alunoService.deleteByIdAluno(id_aluno);
-        return ResponseEntity.status(HttpStatus.OK).body("Aluno removido com sucesso");
+        return ResponseEntity.status(HttpStatus.OK).body("Aluno removido com sucesso!");
     }    
 }

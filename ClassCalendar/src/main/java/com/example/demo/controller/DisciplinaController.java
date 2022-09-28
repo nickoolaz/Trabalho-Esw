@@ -46,7 +46,7 @@ public class DisciplinaController {
     @DeleteMapping("disciplina/{id_disciplina}")
         public ResponseEntity<String> deleteByIdDisciplina(@PathVariable Integer id_disciplina){
             disciplinaService.deleteByIdDisciplina(id_disciplina);
-            return ResponseEntity.status(HttpStatus.OK).body("Disciplina removida com sucesso");
+            return ResponseEntity.status(HttpStatus.OK).body("Disciplina removida com sucesso!");
         }
 }
 
