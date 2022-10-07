@@ -23,38 +23,58 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-@Api("Api Clientes")
+@Api("Api Alunos")
 public class AlunoController {
     
     @Autowired
     private AlunoService alunoService;
     
     @GetMapping("/alunos")
+    @ApiOperation("Listar todos os alunos")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
+        @ApiResponse(code = 404, message = "Falha na requisição")
+    })
     public ResponseEntity <List<Aluno>> listaAlunos(){
         return ResponseEntity.status(HttpStatus.OK). body(alunoService.listaAlunos());
     }
                                                                             
     @GetMapping("aluno/{id_aluno}")
-    @ApiOperation("Obter detalhes de um Aluno")
+    @ApiOperation("Listar um aluno por id")
     @ApiResponses({
-        @ApiResponse(code = 200, message = "Aluno encontrado"),
-        @ApiResponse(code = 404, message = "Aluno não encontrado")
+        @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
+        @ApiResponse(code = 404, message = "Falha na requisição")
     })
     public ResponseEntity<Optional<Aluno>> getByIdAluno(@PathVariable Integer id_aluno){
         return ResponseEntity.status(HttpStatus.OK).body(alunoService.getByIdAluno(id_aluno));  
     }
     
     @PostMapping("aluno")
+    @ApiOperation("Cadastrar um aluno")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
+        @ApiResponse(code = 404, message = "Falha na requisição")
+    })
     public ResponseEntity<Aluno> salvaAluno(@RequestBody Aluno aluno){
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoService.salvaAluno(aluno));
     }
     
     @PutMapping("aluno")
+    @ApiOperation("Atualizar um aluno")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
+        @ApiResponse(code = 404, message = "Falha na requisição")
+    })
     public ResponseEntity<Aluno> atualizaAluno(@RequestBody Aluno aluno){
         return ResponseEntity.status(HttpStatus.OK).body(alunoService.atualizaAluno(aluno));
     }
     
     @DeleteMapping("aluno/{id_aluno}")
+    @ApiOperation("Remover um aluno")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
+        @ApiResponse(code = 404, message = "Falha na requisição")
+    })
     public ResponseEntity<String> deleteByIdAluno(@PathVariable Integer id_aluno){
         alunoService.deleteByIdAluno(id_aluno);
         return ResponseEntity.status(HttpStatus.OK).body("Aluno removido com sucesso!");

@@ -30,10 +30,10 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
             .title("API - ClassCalendar")
-            .description("Api de um aplicativo de agendamento de monitorias utilizado na aula de metrícas de software")
+            .description("Api de agendamento de monitorias desenvolvido na disciplina de Engenharia de Software")
             .version("1.0")
             .termsOfServiceUrl("https://github.com/nickoolaz/Trabalho-Esw")
-            .license("Nicolas M. S. Araujo")
+            .license("Dieyson Gustavo, Rafael Mantovani, Nicolas Araujo, Nicolas Correia" )
             .build();
     }
 }

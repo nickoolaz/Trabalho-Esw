@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 public class Aluno implements Serializable{
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY) //colocar increment
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_aluno")
     private Integer idAluno;
     
