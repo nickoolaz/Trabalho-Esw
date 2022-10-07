@@ -24,26 +24,51 @@ public class HorarioController {
     private HorarioService horarioService;
     
     @GetMapping("/horarios")
+    @ApiOperation("Listar todos os horarios")
+    @ApiResponse({
+        @ApiResponse(code = 200, message = 'Requisição realizada com sucesso')
+        @ApiResponse(code = 404, message = 'Falha na requisição')
+    })
     public ResponseEntity <List<Horario>> listaHorarios(){
         return ResponseEntity.status(HttpStatus.OK).body(horarioService.listaHorarios());
     }
     
     @GetMapping("horario/{id_horario}")
+     @ApiOperation("Listar um horario por id")
+    @ApiResponse({
+        @ApiResponse(code = 200, message = 'Requisição realizada com sucesso')
+        @ApiResponse(code = 404, message = 'Falha na requisição')   
+    })
     public ResponseEntity<Optional<Horario>> getByIdHorario(@PathVariable Integer id_horario){
         return ResponseEntity.status(HttpStatus.OK).body(horarioService.getByIdHorario(id_horario));
     }
     
     @PostMapping("horario")
+    @ApiOperation("Cadastrar um horario")
+    @ApiResponse({
+        @ApiResponse(code = 200, message = 'Requisição realizada com sucesso')
+        @ApiResponse(code = 404, message = 'Falha na requisição')
+    })
     public ResponseEntity<Horario> salvaHorario(@RequestBody Horario horario){
         return ResponseEntity.status(HttpStatus.CREATED).body(horarioService.salvaHorario(horario));
     }
     
     @PutMapping("horario")
+    @ApiOperation("Atualizar um horario")
+    @ApiResponse({
+        @ApiResponse(code = 200, message = 'Requisição realizada com sucesso')
+        @ApiResponse(code = 404, message = 'Falha na requisição')
+    })
     public ResponseEntity<Horario> atualizaHorario(@RequestBody Horario horario){
         return ResponseEntity.status(HttpStatus.OK).body(horarioService.atualizaHorario(horario));
     }
     
     @DeleteMapping("horario/{id_horario}")
+     @ApiOperation("Remover um horario")
+    @ApiResponse({
+        @ApiResponse(code = 200, message = 'Resuisição realizada com sucesso')
+        @ApiResponse(code = 404, message = 'Falha na requisição')
+    })
     public ResponseEntity<String> deleteByIdHorario(@PathVariable Integer id_horario){
         horarioService.deleteByIdHorario(id_horario);
         return ResponseEntity.status(HttpStatus.OK).body("Horario da disciplina removido com sucesso!");
