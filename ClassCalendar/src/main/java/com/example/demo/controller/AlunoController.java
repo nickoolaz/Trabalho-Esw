@@ -2,6 +2,10 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Aluno;
 import com.example.demo.service.AlunoService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+@Api("Api Clientes")
 public class AlunoController {
     
     @Autowired
@@ -29,7 +34,12 @@ public class AlunoController {
         return ResponseEntity.status(HttpStatus.OK). body(alunoService.listaAlunos());
     }
                                                                             
-    @GetMapping("aluno/{id_aluno}")                                                                               
+    @GetMapping("aluno/{id_aluno}")
+    @ApiOperation("Obter detalhes de um Aluno")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Aluno encontrado"),
+        @ApiResponse(code = 404, message = "Aluno não encontrado")
+    })
     public ResponseEntity<Optional<Aluno>> getByIdAluno(@PathVariable Integer id_aluno){
         return ResponseEntity.status(HttpStatus.OK).body(alunoService.getByIdAluno(id_aluno));  
     }
