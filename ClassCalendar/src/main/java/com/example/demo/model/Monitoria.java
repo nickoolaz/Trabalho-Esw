@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -40,7 +39,7 @@ public class Monitoria implements Serializable{
     public Monitoria() {
     }
 
-    public Monitoria(int idMonitoria, long inicioMonitoria, long fimMonitoria, String feedback, Aluno aluno/*,Professor professor*/) {
+    public Monitoria(Integer idMonitoria, long inicioMonitoria, long fimMonitoria, String feedback, Aluno aluno,Professor professor) {
         this.idMonitoria = idMonitoria;
         this.inicioMonitoria = inicioMonitoria;
         this.fimMonitoria = fimMonitoria;
@@ -48,8 +47,9 @@ public class Monitoria implements Serializable{
         this.aluno = aluno;
         this.professor = professor;
     }
-
-    public int getIdMonitoria() {
+    
+    
+    public Integer getIdMonitoria() {
         return idMonitoria;
     }
 
