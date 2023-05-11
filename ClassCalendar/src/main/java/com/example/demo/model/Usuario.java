@@ -6,14 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "usuario_tecnico")
+@Table (name = "usuarios")
 public class Usuario implements Serializable{
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "id_usuario_tecnico")
+    @Column (name = "id_usuario")
     private Integer idUsuario;
     
     @Column (name = "cpf")
@@ -28,23 +30,44 @@ public class Usuario implements Serializable{
     @Column (name = "endereco")
     private String endereco;
     
+    @Column (name = "status")
+    private Boolean  status;
+    
+    @Column (name = "senha")
+    private String  senha;
+    
+    @ManyToOne 
+    @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
+    private Perfil perfil;
+    
     public Usuario (){
     }
 
-    public Usuario(Integer idUsuario, String cpf, String nome, String telefone, String endereco) {
+    public Usuario(Integer idUsuario, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
         this.idUsuario = idUsuario;
         this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
+        this.status = status;
+        this.senha = senha;
+        this.perfil = perfil;
     }
 
     public Integer getIdUsuario() {
         return idUsuario;
     }
 
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     public String getCpf() {
         return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -71,8 +94,33 @@ public class Usuario implements Serializable{
         this.endereco = endereco;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "idUsuario=" + idUsuario + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + '}';
+        return "Usuario{" + "idUsuario=" + idUsuario + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
     }
+ 
 }

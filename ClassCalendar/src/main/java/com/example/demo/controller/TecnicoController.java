@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Usuario;
-import com.example.demo.service.UsuarioService;
+import com.example.demo.model.Tecnico;
+import com.example.demo.service.TecnicoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -20,63 +20,62 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/api")
-@Api("Api Usuários")
-public class UsuarioController {
+@Api("Api Tecnicos")
+public class TecnicoController {
     
     @Autowired
-    private UsuarioService usuarioService;
+    private TecnicoService tecnicoService;
     
-    @GetMapping("/usuarios")
-    @ApiOperation("Listar todos os usuários")
+    @GetMapping("/tecnicos")
+    @ApiOperation("Listar todos os tecnicos")
     @ApiResponses({
         @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
         @ApiResponse(code = 404, message = "Falha na requisição")
     })
-    public ResponseEntity <List<Usuario>> listaUsuarios(){
-        return ResponseEntity.status(HttpStatus.OK). body(usuarioService.listaUsuarios());
+    public ResponseEntity <List<Tecnico>> listaTecnicos(){
+        return ResponseEntity.status(HttpStatus.OK). body(tecnicoService.listaTecnicos());
+    }
+                                                                            
+    @GetMapping("tecnico/{id_tecnico}")
+    @ApiOperation("Listar um tecnico por id")
+    @ApiResponses({
+        @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
+        @ApiResponse(code = 404, message = "Falha na requisição")
+    })
+    public ResponseEntity<Optional<Tecnico>> getByIdTecnico(@PathVariable Integer id_tecnico){
+        return ResponseEntity.status(HttpStatus.OK).body(tecnicoService.getByIdTecnico(id_tecnico));  
     }
     
-    @GetMapping("usuario/{id_usuario}")
-    @ApiOperation("Listar um usuário por id")
+    @PostMapping("tecnico")
+    @ApiOperation("Cadastrar um tecnico")
     @ApiResponses({
         @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
         @ApiResponse(code = 404, message = "Falha na requisição")
     })
-    public ResponseEntity<Optional<Usuario>> getByIdUsuario(@PathVariable Integer id_usuario){
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.getByIdUsuario(id_usuario));  
+    public ResponseEntity<Tecnico> salvaTecnico(@RequestBody Tecnico tecnico){
+        return ResponseEntity.status(HttpStatus.CREATED).body(tecnicoService.salvaTecnico(tecnico));
     }
     
-    @PostMapping("usuario")
-    @ApiOperation("Cadastrar um usuário")
+    @PutMapping("tecnico")
+    @ApiOperation("Atualizar um tecnico")
     @ApiResponses({
         @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
         @ApiResponse(code = 404, message = "Falha na requisição")
     })
-    public ResponseEntity<Usuario> salvaUsuario(@RequestBody Usuario usuario){
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.salvaUsuario(usuario));
+    public ResponseEntity<Tecnico> atualizaTecnico(@RequestBody Tecnico tecnico){
+        return ResponseEntity.status(HttpStatus.OK).body(tecnicoService.atualizaTecnico(tecnico));
     }
     
-    @PutMapping("usuario")
-    @ApiOperation("Atualizar um usuário")
+    @DeleteMapping("tecnico/{id_tecnico}")
+    @ApiOperation("Remover um tecnico")
     @ApiResponses({
         @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
         @ApiResponse(code = 404, message = "Falha na requisição")
     })
-    public ResponseEntity<Usuario> atualizaUsuario(@RequestBody Usuario usuario){
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.atualizaUsuario(usuario));
-    }
-    
-    @DeleteMapping("usuario/{id_usuario}")
-    @ApiOperation("Remover um usuário")
-    @ApiResponses({
-        @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
-        @ApiResponse(code = 404, message = "Falha na requisição")
-    })
-    public ResponseEntity<String> deleteByIdUsuario(@PathVariable Integer id_usuario){
-        usuarioService.deleteByIdUsuario(id_usuario);
-        return ResponseEntity.status(HttpStatus.OK).body("Usuário removido com sucesso!");
-    }  
+    public ResponseEntity<String> deleteByIdTecnico(@PathVariable Integer id_tecnico){
+        tecnicoService.deleteByIdTecnico(id_tecnico);
+        return ResponseEntity.status(HttpStatus.OK).body("Tecnico removido com sucesso!");
+    }    
 }

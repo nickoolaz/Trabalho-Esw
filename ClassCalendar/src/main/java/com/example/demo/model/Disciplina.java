@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,17 +20,12 @@ public class Disciplina implements Serializable {
     @Column (name= "materia")
     private String materia;
     
-    @ManyToOne
-    @JoinColumn (name="id_professor", referencedColumnName = "id_professor")
-    private Professor professor;
-
     public Disciplina() {
     }
 
-    public Disciplina(Integer idDisciplina, String materia, Professor professor) {
+    public Disciplina(Integer idDisciplina, String materia) {
         this.idDisciplina = idDisciplina;
         this.materia = materia;
-        this.professor = professor;
     }
 
     public Integer getIdDisciplina() {
@@ -43,12 +36,13 @@ public class Disciplina implements Serializable {
         return materia;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
-
     public void setMateria(String materia) {
         this.materia = materia;
+    }
+
+    @Override
+    public String toString() {
+        return "Disciplina{" + "idDisciplina=" + idDisciplina + ", materia=" + materia + '}';
     }
     
 } 

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -18,47 +20,28 @@ public class Aluno implements Serializable{
     @Column (name = "id_aluno")
     private Integer idAluno;
     
-    @Column (name = "cpf")
-    private String cpf;
-    
-    @Column (name = "nome")
-    private String nome;
-    
     @Column (name = "turma")
     private String turma;
     
-    @Column (name = "telefone")
-    private String telefone;
-    
-    @Column (name = "endereco")
-    private String endereco;
+    @OneToOne
+    @JoinColumn (name="id_usuario", referencedColumnName = "id_usuario")
+    private Usuario usuario;
 
     public Aluno() {
     }
 
-    public Aluno(Integer idAluno, String cpf, String nome, String turma, String telefone, String endereco) {
+    public Aluno(Integer idAluno, String turma, Usuario usuario) {
         this.idAluno = idAluno;
-        this.cpf = cpf;
-        this.nome = nome;
         this.turma = turma;
-        this.telefone = telefone;
-        this.endereco = endereco;
+        this.usuario = usuario;
     }
 
     public Integer getIdAluno() {
         return idAluno;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setIdAluno(Integer idAluno) {
+        this.idAluno = idAluno;
     }
 
     public String getTurma() {
@@ -69,25 +52,17 @@ public class Aluno implements Serializable{
         this.turma = turma;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
     public String toString() {
-        return "Aluno{" + "idAluno=" + idAluno + ", cpf=" + cpf + ", nome=" + nome + ", turma=" + turma + ", telefone=" + telefone + ", endereco=" + endereco + '}';
+        return "Aluno{" + "idAluno=" + idAluno + ", turma=" + turma + ", usuario=" + usuario + '}';
     }
-    
+
 }
