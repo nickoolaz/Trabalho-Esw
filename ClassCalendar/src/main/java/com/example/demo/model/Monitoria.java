@@ -19,11 +19,8 @@ public class Monitoria implements Serializable{
   @Column (name = "id_monitoria")
   private Integer idMonitoria;
   
-  @Column (name = "inicio_monitoria")
-  private long inicioMonitoria;
-  
-  @Column (name = "fim_monitoria")
-  private long fimMonitoria;
+  @Column (name ="estado")
+  private Boolean estado;
   
   @Column (name = "feedback")
   private String feedback;
@@ -39,54 +36,53 @@ public class Monitoria implements Serializable{
     public Monitoria() {
     }
 
-    public Monitoria(Integer idMonitoria, long inicioMonitoria, long fimMonitoria, String feedback, Aluno aluno,Professor professor) {
+    public Monitoria(Integer idMonitoria, Boolean estado, String feedback, Aluno aluno, Professor professor) {
         this.idMonitoria = idMonitoria;
-        this.inicioMonitoria = inicioMonitoria;
-        this.fimMonitoria = fimMonitoria;
+        this.estado = estado;
         this.feedback = feedback;
         this.aluno = aluno;
         this.professor = professor;
     }
-    
-    
+
     public Integer getIdMonitoria() {
         return idMonitoria;
     }
 
-    public long getInicioMonitoria() {
-        return inicioMonitoria;
+    public Boolean getEstado() {
+        return estado;
     }
 
-    public long getFimMonitoria() {
-        return fimMonitoria;
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 
     public String getFeedback() {
         return feedback;
     }
 
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-   public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setInicioMonitoria(long inicioMonitoria) {
-        this.inicioMonitoria = inicioMonitoria;
-    }
-
-    public void setFimMonitoria(long fimMonitoria) {
-        this.fimMonitoria = fimMonitoria;
-    }
-
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
 
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
     @Override
     public String toString() {
-        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", inicioMonitoria=" + inicioMonitoria + ", fimMonitoria=" + fimMonitoria + ", feedback=" + feedback + ", aluno=" + aluno + /*", professor=" + professor +*/ '}';
+        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", estado=" + estado + ", feedback=" + feedback + ", aluno=" + aluno + ", professor=" + professor + '}';
     }
+    
 }
