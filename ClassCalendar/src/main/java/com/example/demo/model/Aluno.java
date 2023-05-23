@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,25 +24,45 @@ public class Aluno implements Serializable{
     @Column (name = "turma")
     private String turma;
     
-    @OneToOne
-    @JoinColumn (name="id_usuario", referencedColumnName = "id_usuario")
-    private Usuario usuario;
+    @Column (name = "cpf")
+    private String cpf;
+    
+    @Column (name = "nome")
+    private String nome;
+    
+    @Column (name = "telefone")
+    private String telefone;
+    
+    @Column (name = "endereco")
+    private String endereco;
+    
+    @Column (name = "status")
+    private Boolean  status;
+    
+    @Column (name = "senha")
+    private String  senha;
 
+    @ManyToOne 
+    @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
+    private Perfil perfil;
+    
     public Aluno() {
     }
 
-    public Aluno(Integer idAluno, String turma, Usuario usuario) {
+    public Aluno(Integer idAluno, String turma, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
         this.idAluno = idAluno;
         this.turma = turma;
-        this.usuario = usuario;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.status = status;
+        this.senha = senha;
+        this.perfil = perfil;
     }
 
     public Integer getIdAluno() {
         return idAluno;
-    }
-
-    public void setIdAluno(Integer idAluno) {
-        this.idAluno = idAluno;
     }
 
     public String getTurma() {
@@ -52,17 +73,65 @@ public class Aluno implements Serializable{
         this.turma = turma;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
     @Override
     public String toString() {
-        return "Aluno{" + "idAluno=" + idAluno + ", turma=" + turma + ", usuario=" + usuario + '}';
+        return "Aluno{" + "idAluno=" + idAluno + ", turma=" + turma + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
     }
 
 }

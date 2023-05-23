@@ -17,10 +17,28 @@ public class Tecnico implements Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_tecnico")
     private Integer idTecnico;
-       
-   @ManyToOne 
-   @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
-   private Perfil perfil;
+    
+    @Column (name = "cpf")
+    private String cpf;
+    
+    @Column (name = "nome")
+    private String nome;
+    
+    @Column (name = "telefone")
+    private String telefone;
+    
+    @Column (name = "endereco")
+    private String endereco;
+    
+    @Column (name = "status")
+    private Boolean  status;
+    
+    @Column (name = "senha")
+    private String  senha;
+    
+    @ManyToOne 
+    @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
+    private Perfil perfil;
 
     public Tecnico() {
     }

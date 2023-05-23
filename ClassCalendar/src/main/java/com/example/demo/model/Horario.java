@@ -32,7 +32,7 @@ public class Horario implements Serializable {
     private Integer horarioFim;
     
     @Column (name = "disponivel")
-    private Long disponivel;
+    private Boolean disponivel;
     
     @ManyToOne
     @JoinColumn (name = "id_disciplina ", referencedColumnName = "id_disciplina")
@@ -41,7 +41,7 @@ public class Horario implements Serializable {
     public Horario() {
     }
 
-    public Horario(Integer idHorario, Integer mes, Integer dia, Integer horarioInicio, Integer horarioFim, Long disponivel, Disciplina disciplina) {
+    public Horario(Integer idHorario, Integer mes, Integer dia, Integer horarioInicio, Integer horarioFim, Boolean disponivel, Disciplina disciplina) {
         this.idHorario = idHorario;
         this.mes = mes;
         this.dia = dia;
@@ -71,7 +71,7 @@ public class Horario implements Serializable {
         return horarioFim;
     }
 
-    public Long getDisponivel() {
+    public Boolean getDisponivel() {
         return disponivel;
     }
 
@@ -95,7 +95,7 @@ public class Horario implements Serializable {
         this.horarioFim = horarioFim;
     }
 
-    public void setDisponivel(Long disponivel) {
+    public void setDisponivel(Boolean disponivel) {
         this.disponivel = disponivel;
     }
 

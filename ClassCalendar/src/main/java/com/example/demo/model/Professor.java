@@ -8,8 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,54 +18,108 @@ public class Professor implements Serializable{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_professor")
     private Integer idProfessor;
- 
-    @OneToMany
-    @JoinColumn(name = "id_professor")
-    private List<Disciplina> disciplinas;
+      
+    @Column (name = "cpf")
+    private String cpf;
     
-    @OneToOne
-    @JoinColumn (name="id_usuario", referencedColumnName = "id_usuario")
-    private Usuario usuario;
-   
+    @Column (name = "nome")
+    private String nome;
+    
+    @Column (name = "telefone")
+    private String telefone;
+    
+    @Column (name = "endereco")
+    private String endereco;
+    
+    @Column (name = "status")
+    private Boolean  status;
+    
+    @Column (name = "senha")
+    private String  senha;
+            
+    @ManyToOne 
+    @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
+    private Perfil perfil;
+
     public Professor() {
     }
 
-    public Professor(Integer idProfessor, Usuario usuario) {
+    public Professor(Integer idProfessor, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
         this.idProfessor = idProfessor;
-        this.usuario = usuario;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.status = status;
+        this.senha = senha;
+        this.perfil = perfil;
     }
 
-    public Professor(Integer idProfessor, List<Disciplina> disciplinas, Usuario usuario) {
-        this.idProfessor = idProfessor;
-        this.disciplinas = disciplinas;
-        this.usuario = usuario;
-    }
-    
     public Integer getIdProfessor() {
         return idProfessor;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDisciplinas(List<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
     @Override
     public String toString() {
-        return "Professor{" + "idProfessor=" + idProfessor + ", disciplinas=" + disciplinas + ", usuario=" + usuario + '}';
+        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
     }
- 
+
 }
 
 

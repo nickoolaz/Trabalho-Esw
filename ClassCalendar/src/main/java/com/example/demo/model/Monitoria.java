@@ -14,16 +14,16 @@ import javax.persistence.Table;
 @Table(name= "monitoria")
 
 public class Monitoria implements Serializable{
-  @Id
-  @GeneratedValue (strategy = GenerationType.IDENTITY)
-  @Column (name = "id_monitoria")
-  private Integer idMonitoria;
+   @Id
+   @GeneratedValue (strategy = GenerationType.IDENTITY)
+   @Column (name = "id_monitoria")
+   private Integer idMonitoria;
   
-  @Column (name ="estado")
-  private Boolean estado;
+   @Column (name ="estado")
+   private Boolean estado;
   
-  @Column (name = "feedback")
-  private String feedback;
+   @Column (name = "feedback")
+   private String feedback;
    
    @ManyToOne 
    @JoinColumn (name = "id_aluno", referencedColumnName = "id_aluno")
@@ -33,56 +33,56 @@ public class Monitoria implements Serializable{
    @JoinColumn (name = "id_professor", referencedColumnName = "id_professor")
    private Professor professor;
    
-    public Monitoria() {
-    }
+   public Monitoria() {
+   }
 
-    public Monitoria(Integer idMonitoria, Boolean estado, String feedback, Aluno aluno, Professor professor) {
-        this.idMonitoria = idMonitoria;
-        this.estado = estado;
-        this.feedback = feedback;
-        this.aluno = aluno;
-        this.professor = professor;
-    }
+   public Monitoria(Integer idMonitoria, Boolean estado, String feedback, Aluno aluno, Professor professor) {
+       this.idMonitoria = idMonitoria;
+       this.estado = estado;
+       this.feedback = feedback;
+       this.aluno = aluno;
+       this.professor = professor;
+   }
 
-    public Integer getIdMonitoria() {
-        return idMonitoria;
-    }
+   public Integer getIdMonitoria() {
+       return idMonitoria;
+   }
 
-    public Boolean getEstado() {
-        return estado;
-    }
+   public Boolean getEstado() {
+       return estado;
+   }
 
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
+   public void setEstado(Boolean estado) {
+       this.estado = estado;
+   }
 
-    public String getFeedback() {
-        return feedback;
-    }
+   public String getFeedback() {
+       return feedback;
+   }
 
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
-    }
+   public void setFeedback(String feedback) {
+       this.feedback = feedback;
+   }
 
-    public Aluno getAluno() {
-        return aluno;
-    }
+   public Aluno getAluno() {
+       return aluno;
+   }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
+   public void setAluno(Aluno aluno) {
+       this.aluno = aluno;
+   }
 
-    public Professor getProfessor() {
-        return professor;
-    }
+   public Professor getProfessor() {
+       return professor;
+   }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
+   public void setProfessor(Professor professor) {
+       this.professor = professor;
+   }
 
-    @Override
-    public String toString() {
-        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", estado=" + estado + ", feedback=" + feedback + ", aluno=" + aluno + ", professor=" + professor + '}';
-    }
+   @Override
+   public String toString() {
+       return "Monitoria{" + "idMonitoria=" + idMonitoria + ", estado=" + estado + ", feedback=" + feedback + ", aluno=" + aluno + ", professor=" + professor + '}';
+   }
     
 }
