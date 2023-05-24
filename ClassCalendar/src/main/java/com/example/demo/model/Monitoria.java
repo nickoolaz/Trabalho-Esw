@@ -30,18 +30,18 @@ public class Monitoria implements Serializable{
    private Aluno aluno;    
    
    @ManyToOne
-   @JoinColumn (name = "id_professor", referencedColumnName = "id_professor")
-   private Professor professor;
+   @JoinColumn (name = "id_horario_disciplina", referencedColumnName = "id_horario_disciplina")
+   private Horario horario;
    
    public Monitoria() {
    }
 
-   public Monitoria(Integer idMonitoria, Boolean estado, String feedback, Aluno aluno, Professor professor) {
+   public Monitoria(Integer idMonitoria, Boolean estado, String feedback, Aluno aluno, Horario horario) {
        this.idMonitoria = idMonitoria;
        this.estado = estado;
        this.feedback = feedback;
        this.aluno = aluno;
-       this.professor = professor;
+       this.horario = horario;
    }
 
    public Integer getIdMonitoria() {
@@ -72,17 +72,17 @@ public class Monitoria implements Serializable{
        this.aluno = aluno;
    }
 
-   public Professor getProfessor() {
-       return professor;
+   public Horario getHorario() {
+       return horario;
    }
 
-   public void setProfessor(Professor professor) {
-       this.professor = professor;
+   public void setHorario(Horario horario) {
+       this.horario = horario;
    }
 
    @Override
    public String toString() {
-       return "Monitoria{" + "idMonitoria=" + idMonitoria + ", estado=" + estado + ", feedback=" + feedback + ", aluno=" + aluno + ", professor=" + professor + '}';
+       return "Monitoria{" + "idMonitoria=" + idMonitoria + ", estado=" + estado + ", feedback=" + feedback + ", aluno=" + aluno + ", horario=" + horario + '}';
    }
     
 }
