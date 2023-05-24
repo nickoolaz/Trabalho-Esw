@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -10,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,10 +36,6 @@ public class Professor implements Serializable{
     
     @Column (name = "senha")
     private String  senha;
-    
-    @OneToMany(mappedBy = "professor")
-    @JsonBackReference
-    private List<Disciplina> disciplinas;
             
     @ManyToOne 
     @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
@@ -50,7 +44,7 @@ public class Professor implements Serializable{
     public Professor() {
     }
 
-    public Professor(Integer idProfessor, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, List<Disciplina> disciplinas, Perfil perfil) {
+    public Professor(Integer idProfessor, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
         this.idProfessor = idProfessor;
         this.cpf = cpf;
         this.nome = nome;
@@ -58,17 +52,7 @@ public class Professor implements Serializable{
         this.endereco = endereco;
         this.status = status;
         this.senha = senha;
-        this.disciplinas = disciplinas;
         this.perfil = perfil;
-    }
-
-   
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
-
-    public void setDisciplinas(List<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
     }
 
     public Integer getIdProfessor() {
@@ -130,14 +114,12 @@ public class Professor implements Serializable{
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
-    
 
     @Override
     public String toString() {
-        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", disciplinas=" + disciplinas + ", perfil=" + perfil + '}';
+        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
     }
 
-    
 }
 
 
