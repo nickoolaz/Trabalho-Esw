@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -36,7 +38,11 @@ public class Professor implements Serializable{
     
     @Column (name = "senha")
     private String  senha;
-            
+    
+    @OneToMany(mappedBy = "professor")
+    @JsonBackReference
+    private List<Disciplina> disciplinas;
+    
     @ManyToOne 
     @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
     private Perfil perfil;
