@@ -1,5 +1,6 @@
     package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,6 +24,7 @@ public class Disciplina implements Serializable {
     private String materia;
     
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "id_professor", referencedColumnName = "id_professor")
     private Professor professor;
     
