@@ -43,17 +43,19 @@ public class Tecnico implements Serializable {
     public Tecnico() {
     }
 
-    public Tecnico(Integer idTecnico, Perfil perfil) {
+    public Tecnico(Integer idTecnico, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
         this.idTecnico = idTecnico;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.status = status;
+        this.senha = senha;
         this.perfil = perfil;
     }
-
+  
     public Integer getIdTecnico() {
         return idTecnico;
-    }
-
-    public void setIdTecnico(Integer idTecnico) {
-        this.idTecnico = idTecnico;
     }
 
     public Perfil getPerfil() {
@@ -64,9 +66,58 @@ public class Tecnico implements Serializable {
         this.perfil = perfil;
     }
 
-    @Override
-    public String toString() {
-        return "Tecnico{" + "idTecnico=" + idTecnico + ", perfil=" + perfil + '}';
+    public String getCpf() {
+        return cpf;
     }
 
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "Tecnico{" + "idTecnico=" + idTecnico + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
+    }
+
+   
 }
