@@ -50,7 +50,7 @@ public class Professor implements Serializable{
     public Professor() {
     }
 
-    public Professor(Integer idProfessor, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
+    public Professor(Integer idProfessor, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, List<Disciplina> disciplinas, Perfil perfil) {
         this.idProfessor = idProfessor;
         this.cpf = cpf;
         this.nome = nome;
@@ -58,8 +58,11 @@ public class Professor implements Serializable{
         this.endereco = endereco;
         this.status = status;
         this.senha = senha;
+        this.disciplinas = disciplinas;
         this.perfil = perfil;
     }
+
+    
 
     public Integer getIdProfessor() {
         return idProfessor;
@@ -121,9 +124,17 @@ public class Professor implements Serializable{
         this.perfil = perfil;
     }
 
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
+
     @Override
     public String toString() {
-        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
+        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", disciplinas=" + disciplinas + ", perfil=" + perfil + '}';
     }
 
 }
