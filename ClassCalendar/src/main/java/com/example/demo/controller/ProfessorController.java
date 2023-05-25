@@ -49,7 +49,7 @@ public class ProfessorController {
     }
     
     @PostMapping("professor")
-     @ApiOperation("Cadastrar um professor")
+    @ApiOperation("Cadastrar um professor")
     @ApiResponses({
         @ApiResponse(code = 200, message = "Requisição realizada com sucesso"),
         @ApiResponse(code = 404, message = "Falha na requisição")

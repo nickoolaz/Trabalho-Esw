@@ -39,9 +39,6 @@ public class Professor implements Serializable{
     @Column (name = "senha")
     private String  senha;
     
-    @OneToMany(mappedBy = "professor")
-    @JsonBackReference
-    private List<Disciplina> disciplinas;
     
     public Professor() {
     }
@@ -54,7 +51,6 @@ public class Professor implements Serializable{
         this.endereco = endereco;
         this.status = status;
         this.senha = senha;
-        this.disciplinas = disciplinas;
     }
 
     
@@ -111,17 +107,9 @@ public class Professor implements Serializable{
         this.senha = senha;
     }
 
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
-
-    public void setDisciplinas(List<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
-    }
-
     @Override
     public String toString() {
-        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", disciplinas=" + disciplinas + '}';
+        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + '}';
     }
 
 }
