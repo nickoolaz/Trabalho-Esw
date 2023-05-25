@@ -36,14 +36,10 @@ public class Tecnico implements Serializable {
     @Column (name = "senha")
     private String  senha;
     
-    @ManyToOne 
-    @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
-    private Perfil perfil;
-
     public Tecnico() {
     }
 
-    public Tecnico(Integer idTecnico, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
+    public Tecnico(Integer idTecnico, String cpf, String nome, String telefone, String endereco, Boolean status, String senha) {
         this.idTecnico = idTecnico;
         this.cpf = cpf;
         this.nome = nome;
@@ -51,19 +47,10 @@ public class Tecnico implements Serializable {
         this.endereco = endereco;
         this.status = status;
         this.senha = senha;
-        this.perfil = perfil;
     }
   
     public Integer getIdTecnico() {
         return idTecnico;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
     }
 
     public String getCpf() {
@@ -116,7 +103,7 @@ public class Tecnico implements Serializable {
 
     @Override
     public String toString() {
-        return "Tecnico{" + "idTecnico=" + idTecnico + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
+        return "Tecnico{" + "idTecnico=" + idTecnico + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + '}';
     }
 
    

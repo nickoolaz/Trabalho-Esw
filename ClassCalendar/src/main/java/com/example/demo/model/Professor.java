@@ -43,14 +43,10 @@ public class Professor implements Serializable{
     @JsonBackReference
     private List<Disciplina> disciplinas;
     
-    @ManyToOne 
-    @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
-    private Perfil perfil;
-
     public Professor() {
     }
 
-    public Professor(Integer idProfessor, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, List<Disciplina> disciplinas, Perfil perfil) {
+    public Professor(Integer idProfessor, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, List<Disciplina> disciplinas) {
         this.idProfessor = idProfessor;
         this.cpf = cpf;
         this.nome = nome;
@@ -59,7 +55,6 @@ public class Professor implements Serializable{
         this.status = status;
         this.senha = senha;
         this.disciplinas = disciplinas;
-        this.perfil = perfil;
     }
 
     
@@ -116,14 +111,6 @@ public class Professor implements Serializable{
         this.senha = senha;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
-    }
-
     public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }
@@ -134,7 +121,7 @@ public class Professor implements Serializable{
 
     @Override
     public String toString() {
-        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", disciplinas=" + disciplinas + ", perfil=" + perfil + '}';
+        return "Professor{" + "idProfessor=" + idProfessor + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", disciplinas=" + disciplinas + '}';
     }
 
 }

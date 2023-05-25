@@ -6,9 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -42,14 +39,11 @@ public class Aluno implements Serializable{
     @Column (name = "senha")
     private String  senha;
 
-    @ManyToOne 
-    @JoinColumn (name = "id_perfil", referencedColumnName = "id_perfil")
-    private Perfil perfil;
     
     public Aluno() {
     }
 
-    public Aluno(Integer idAluno, String turma, String cpf, String nome, String telefone, String endereco, Boolean status, String senha, Perfil perfil) {
+    public Aluno(Integer idAluno, String turma, String cpf, String nome, String telefone, String endereco, Boolean status, String senha) {
         this.idAluno = idAluno;
         this.turma = turma;
         this.cpf = cpf;
@@ -58,7 +52,6 @@ public class Aluno implements Serializable{
         this.endereco = endereco;
         this.status = status;
         this.senha = senha;
-        this.perfil = perfil;
     }
 
     public Integer getIdAluno() {
@@ -121,17 +114,9 @@ public class Aluno implements Serializable{
         this.senha = senha;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
-    }
-
     @Override
     public String toString() {
-        return "Aluno{" + "idAluno=" + idAluno + ", turma=" + turma + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + ", perfil=" + perfil + '}';
+        return "Aluno{" + "idAluno=" + idAluno + ", turma=" + turma + ", cpf=" + cpf + ", nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", status=" + status + ", senha=" + senha + '}';
     }
 
 }
