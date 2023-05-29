@@ -53,8 +53,6 @@ public class Professor implements Serializable{
         this.senha = senha;
     }
 
-    
-
     public Integer getIdProfessor() {
         return idProfessor;
     }
